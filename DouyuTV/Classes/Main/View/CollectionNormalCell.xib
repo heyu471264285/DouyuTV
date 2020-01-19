@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="YuS-6Q-wTE" customClass="CollectionNormalCell" customModule="DYZB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="253" height="182"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="253" height="182"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_live_cate_normal" translatesAutoresizingMaskIntoConstraints="NO" id="voo-kF-G7c">
+                        <rect key="frame" x="0.0" y="158" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="IyB-pH-neE"/>
+                            <constraint firstAttribute="width" constant="14" id="m4i-xn-MGO"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国女孩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQa-Ac-Qut">
+                        <rect key="frame" x="19" y="158.5" width="229" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_default" translatesAutoresizingMaskIntoConstraints="NO" id="bC1-aF-JYt">
+                        <rect key="frame" x="0.0" y="0.0" width="253" height="153"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="模特大赛" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXI-BC-dea">
+                        <rect key="frame" x="5" y="134.5" width="45" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQA-el-MTx">
+                        <rect key="frame" x="181" y="132" width="67" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="6666在线" image="Image_online"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="TQa-Ac-Qut" firstAttribute="leading" secondItem="voo-kF-G7c" secondAttribute="trailing" constant="5" id="6GC-18-DQl"/>
+                <constraint firstItem="bC1-aF-JYt" firstAttribute="leading" secondItem="YuS-6Q-wTE" secondAttribute="leading" id="Ahp-u3-OAz"/>
+                <constraint firstItem="voo-kF-G7c" firstAttribute="top" secondItem="bC1-aF-JYt" secondAttribute="bottom" constant="5" id="Fm6-AC-bjp"/>
+                <constraint firstItem="voo-kF-G7c" firstAttribute="centerY" secondItem="TQa-Ac-Qut" secondAttribute="centerY" id="HbI-5k-D4F"/>
+                <constraint firstItem="bC1-aF-JYt" firstAttribute="top" secondItem="YuS-6Q-wTE" secondAttribute="top" id="JQI-td-rf6"/>
+                <constraint firstAttribute="trailing" secondItem="TQa-Ac-Qut" secondAttribute="trailing" constant="5" id="JRU-R5-jQ8"/>
+                <constraint firstItem="HQA-el-MTx" firstAttribute="bottom" secondItem="bC1-aF-JYt" secondAttribute="bottom" constant="-5" id="R4C-UA-K4A"/>
+                <constraint firstAttribute="trailing" secondItem="bC1-aF-JYt" secondAttribute="trailing" id="bvr-Ij-aK0"/>
+                <constraint firstItem="kXI-BC-dea" firstAttribute="leading" secondItem="bC1-aF-JYt" secondAttribute="leading" constant="5" id="cgw-aS-OXe"/>
+                <constraint firstItem="HQA-el-MTx" firstAttribute="trailing" secondItem="bC1-aF-JYt" secondAttribute="trailing" constant="-5" id="inD-B3-oEt"/>
+                <constraint firstAttribute="bottom" secondItem="voo-kF-G7c" secondAttribute="bottom" constant="10" id="p4o-to-vF3"/>
+                <constraint firstItem="voo-kF-G7c" firstAttribute="leading" secondItem="YuS-6Q-wTE" secondAttribute="leading" id="rrl-ty-rVU"/>
+                <constraint firstItem="kXI-BC-dea" firstAttribute="bottom" secondItem="bC1-aF-JYt" secondAttribute="bottom" constant="-5" id="xwx-1S-rb5"/>
+            </constraints>
+            <size key="customSize" width="253" height="182"/>
+            <point key="canvasLocation" x="332.5" y="294"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Image_online" width="16" height="16"/>
+        <image name="Img_default" width="172.5" height="103.5"/>
+        <image name="home_live_cate_normal" width="14" height="14"/>
+    </resources>
+</document>
