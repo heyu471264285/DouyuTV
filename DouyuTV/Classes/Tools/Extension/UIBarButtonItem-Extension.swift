@@ -23,5 +23,14 @@ extension UIBarButtonItem{
         }
         self.init(customView:btn);
     }
-    
+//    - (UINavigationBar *)tempNavigationBar{
+//        if (!_tempNavigationBar) {
+//            _tempNavigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
+//            _tempNavigationBar.translucent = NO;
+//            [_tempNavigationBar setTintColor:[UIColor whiteColor]];
+//        }
+//        return _tempNavigationBar;
+//    }
 }
+
+

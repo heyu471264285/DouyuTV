@@ -23,7 +23,6 @@ class HomeController: UIViewController {
         return titleView;
         
         
-        
     }();
     
      lazy var pageContentView : PageContentView = {[weak self] in
@@ -104,3 +103,5 @@ extension HomeController : PageContentViewDelegate{
     }
     
 }
+
+

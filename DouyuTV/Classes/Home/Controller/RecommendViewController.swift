@@ -20,6 +20,9 @@ private let kHeaderViewID = "kHeaderViewID";
 
 class RecommendViewController: UIViewController {
 
+    // MARK:- 懒加载属性
+    lazy var recommendVM : RecommendViewModel = RecommendViewModel();
+    
      lazy var collectionView : UICollectionView = {[unowned self] in
         let layout = UICollectionViewFlowLayout();
         layout.itemSize = CGSize(width: kItemW, height: kNormalItemH);
@@ -52,6 +55,7 @@ class RecommendViewController: UIViewController {
 //        self.view.addSubview(collectionView);
 
         setupUI();
+        loadDate();
     }
 
 }
@@ -63,29 +67,70 @@ extension RecommendViewController {
     }
 }
 
+extension RecommendViewController{
+    private func loadDate(){
+            // 0.给父类中的ViewModel进行赋值
+//                   baseVM = recommendVM
+                   
+                   // 1.请求推荐数据
+                   recommendVM.requestData {
+//                       // 1.展示推荐数据
+//                       self.collectionView.reloadData()
+                       
+                       // 2.将数据传递给GameView
+                       var groups = self.recommendVM.anchorGroups
+                       
+                       // 2.1.移除前两组数据
+                       groups.removeFirst()
+                       groups.removeFirst()
+                       
+                       // 2.2.添加更多组
+                       let moreGroup = AnchorGroup()
+                       moreGroup.tag_name = "更多"
+                       groups.append(moreGroup)
+                       
+//                       self.gameView.groups = groups
+//
+//                       // 3.数据请求完成
+//                       self.loadDataFinished()
+                    // 1.展示推荐数据
+                                      self.collectionView.reloadData()
+                   }
+                   
+    }
+}
+
 extension RecommendViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return recommendVM.anchorGroups.count;
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 8;
-        }else{
-            return 4;
-        }
+        let group = recommendVM.anchorGroups[section];
+        return group.anchors.count;
+//        if section == 0 {
+//            return 8;
+//        }else{
+//            return 4;
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell : UICollectionViewCell;
+//        let group = recommendVM.anchorGroups[indexPath.section];
+//        let anchor = group.anchors[indexPath.row];
+        var cell : CollectionBaseCell!;
         if indexPath.section == 0 {
-              cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath);
+              cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell;
         }else{
-             cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath);
+             cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell;
         }
-       
+//        cell.anchor = anchor;
+    
+       cell.anchor = recommendVM.anchorGroups[indexPath.section].anchors[indexPath.item]
         return cell;
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 12;
-    }
+
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderViewID, for: indexPath);
