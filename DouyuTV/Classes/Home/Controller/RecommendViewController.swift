@@ -13,6 +13,7 @@ private let kItemW = (kScreenW - 3 * kItemMargin)/2;
 private let kNormalItemH = kItemW * 3/4;
 private let KPrettyItemH = kItemW * 4/3;
 private let kHeaderViewH : CGFloat = 50;
+private let kCycleViewH : CGFloat = kScreenW * 3/8;
 private let kNormalCellID = "kNormalCellID";
 private let kPrettyCellID = "kPrettyCellID";
 private let kHeaderViewID = "kHeaderViewID";
@@ -50,6 +51,11 @@ class RecommendViewController: UIViewController {
         
     }();
     
+    lazy var cycleView : RecommendCycleView = {
+        let cycleView = RecommendCycleView.recommendCycleView();
+        cycleView.frame = CGRect(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH);
+        return cycleView;
+    }();
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.view.addSubview(collectionView);
@@ -63,7 +69,8 @@ class RecommendViewController: UIViewController {
 extension RecommendViewController {
     func setupUI(){
         view.addSubview(collectionView);
-      
+        collectionView.addSubview(cycleView);
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0);
     }
 }
 
@@ -96,8 +103,13 @@ extension RecommendViewController{
                     // 1.展示推荐数据
                                       self.collectionView.reloadData()
                    }
+       // 2.请求轮播数据
+               recommendVM.requestCycleData {
+                   self.cycleView.cycleModels = self.recommendVM.cycleModels
+               }
                    
     }
+    
 }
 
 extension RecommendViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
