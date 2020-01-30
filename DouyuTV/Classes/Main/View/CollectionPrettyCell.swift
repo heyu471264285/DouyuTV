@@ -20,8 +20,14 @@ class CollectionPrettyCell: CollectionBaseCell {
             // 1.将属性传递给父类
             super.anchor = anchor
             
+            let cityStr : String = anchor!.anchor_city;
+            if cityStr.count>1{
             // 2.所在的城市
-//            cityBtn.setTitle(anchor?.anchor_city, for: UIControlState())
+                cityBtn.isHidden = false;
+            cityBtn.setTitle(anchor?.anchor_city, for: UIControl.State())
+            }else{
+                cityBtn.isHidden = true;
+            }
         }
     }
 

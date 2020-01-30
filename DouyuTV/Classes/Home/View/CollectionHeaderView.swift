@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Kingfisher
+
 
 class CollectionHeaderView: UICollectionReusableView {
 
@@ -19,7 +21,15 @@ class CollectionHeaderView: UICollectionReusableView {
         var group : AnchorGroup? {
             didSet {
                 titleLabel.text = group?.tag_name
-                iconImageView.image = UIImage(named: group?.icon_name ?? "home_header_normal")
+//                iconImageView.image = UIImage(named: group?.icon_name ?? "home_header_normal")
+
+                if group!.icon_url.count > 0 {
+                    let iconURL = URL(string: group!.icon_url);
+                     iconImageView.kf.setImage(with: iconURL);
+                }else{
+//                    iconImageView.image = UIImage(named: "home_header_normal")
+                     iconImageView.image = UIImage(named: group?.icon_name ?? "home_header_normal")
+                }
             }
         }
     }

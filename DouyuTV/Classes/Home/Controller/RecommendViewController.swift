@@ -144,6 +144,17 @@ extension RecommendViewController : UICollectionViewDataSource,UICollectionViewD
         if indexPath.section == 0 {
             return CGSize(width: kItemW, height: kNormalItemH);
         }else{
+//            AnchorModel
+//            let anchor = recommendVM.anchorGroups[indexPath.section].anchors[indexPath.item] as! AnchorModel;
+//            let cityStr : String = anchor.anchor_city;
+//            let cellH : CGFloat;
+//            if cityStr.count>1{
+//            // 2.所在的城市
+//                cellH = KPrettyItemH;
+//            }else{
+////                cityBtn.isHidden = true;
+//                cellH = KPrettyItemH - 14;
+//            }
             return CGSize(width: kItemW, height: KPrettyItemH);
         }
     }
