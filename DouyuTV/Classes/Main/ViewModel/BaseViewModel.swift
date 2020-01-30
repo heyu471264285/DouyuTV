@@ -25,7 +25,7 @@ extension BaseViewModel {
             if isGroupData {
                 // 2.1.遍历数组中的字典
                 for dict in dataArray {
-                    self.anchorGroups.append(AnchorGroup(dict: dict))
+                    self.anchorGroups.append(AnchorGroup(dict: dict as! [String : NSObject]))
                 }
             } else  {
                 // 2.1.创建组

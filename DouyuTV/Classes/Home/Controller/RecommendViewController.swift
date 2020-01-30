@@ -133,7 +133,9 @@ extension RecommendViewController : UICollectionViewDataSource,UICollectionViewD
 
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderViewID, for: indexPath);
+        let headerView :CollectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderViewID, for: indexPath) as! CollectionHeaderView;
+        let group = recommendVM.anchorGroups[indexPath.section];
+        headerView.group = group;
         return headerView;
     }
     
