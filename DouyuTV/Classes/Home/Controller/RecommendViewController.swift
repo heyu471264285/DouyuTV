@@ -14,6 +14,7 @@ private let kNormalItemH = kItemW * 3/4;
 private let KPrettyItemH = kItemW * 4/3;
 private let kHeaderViewH : CGFloat = 50;
 private let kCycleViewH : CGFloat = kScreenW * 3/8;
+private let kGameViewH : CGFloat = 90
 private let kNormalCellID = "kNormalCellID";
 private let kPrettyCellID = "kPrettyCellID";
 private let kHeaderViewID = "kHeaderViewID";
@@ -51,11 +52,16 @@ class RecommendViewController: UIViewController {
         
     }();
     
-    lazy var cycleView : RecommendCycleView = {
-        let cycleView = RecommendCycleView.recommendCycleView();
-        cycleView.frame = CGRect(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH);
-        return cycleView;
-    }();
+     fileprivate lazy var cycleView : RecommendCycleView = {
+          let cycleView = RecommendCycleView.recommendCycleView()
+          cycleView.frame = CGRect(x: 0, y: -(kCycleViewH + kGameViewH), width: kScreenW, height: kCycleViewH)
+          return cycleView
+     }();
+      fileprivate lazy var gameView : RecommendGameView = {
+          let gameView = RecommendGameView.recommendGameView()
+          gameView.frame = CGRect(x: 0, y: -kGameViewH, width: kScreenW, height: kGameViewH)
+          return gameView
+      }();
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.view.addSubview(collectionView);
@@ -67,10 +73,18 @@ class RecommendViewController: UIViewController {
 }
 
 extension RecommendViewController {
+      // 1.先调用super.setupUI()
     func setupUI(){
         view.addSubview(collectionView);
         collectionView.addSubview(cycleView);
-        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0);
+         // 2.将CycleView添加到UICollectionView中
+               collectionView.addSubview(cycleView)
+               
+               // 3.将gameView添加collectionView中
+               collectionView.addSubview(gameView)
+               
+               // 4.设置collectionView的内边距
+               collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
     }
 }
 
@@ -96,7 +110,7 @@ extension RecommendViewController{
                        moreGroup.tag_name = "更多"
                        groups.append(moreGroup)
                        
-//                       self.gameView.groups = groups
+                       self.gameView.groups = groups
 //
 //                       // 3.数据请求完成
 //                       self.loadDataFinished()
