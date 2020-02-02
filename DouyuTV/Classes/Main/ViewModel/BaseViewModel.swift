@@ -10,8 +10,8 @@ import UIKit
 
 class BaseViewModel {
     lazy var anchorGroups : [AnchorGroup] = [AnchorGroup]()
-
 }
+
 
 extension BaseViewModel {
     func loadAnchorData(isGroupData : Bool, URLString : String, parameters : [String : Any]? = nil, finishedCallback : @escaping () -> ()) {
@@ -25,7 +25,7 @@ extension BaseViewModel {
             if isGroupData {
                 // 2.1.遍历数组中的字典
                 for dict in dataArray {
-                    self.anchorGroups.append(AnchorGroup(dict: dict as! [String : NSObject]))
+                    self.anchorGroups.append(AnchorGroup(dict: dict))
                 }
             } else  {
                 // 2.1.创建组

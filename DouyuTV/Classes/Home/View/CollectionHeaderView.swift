@@ -11,33 +11,25 @@ import Kingfisher
 
 
 class CollectionHeaderView: UICollectionReusableView {
-
-   // MARK:- 控件属性
-        @IBOutlet weak var titleLabel: UILabel!
-        @IBOutlet weak var iconImageView: UIImageView!
-        @IBOutlet weak var moreBtn: UIButton!
-        
-        // MARK:- 定义模型属性
-        var group : AnchorGroup? {
-            didSet {
-                titleLabel.text = group?.tag_name
-//                iconImageView.image = UIImage(named: group?.icon_name ?? "home_header_normal")
-
-                if group!.icon_url.count > 0 {
-                    let iconURL = URL(string: group!.icon_url);
-                     iconImageView.kf.setImage(with: iconURL);
-                }else{
-//                    iconImageView.image = UIImage(named: "home_header_normal")
-                     iconImageView.image = UIImage(named: group?.icon_name ?? "home_header_normal")
-                }
-            }
+    
+    // MARK:- 控件属性
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var moreBtn: UIButton!
+    
+    // MARK:- 定义模型属性
+    var group : AnchorGroup? {
+        didSet {
+            titleLabel.text = group?.tag_name
+            iconImageView.image = UIImage(named: group?.icon_name ?? "home_header_normal")
         }
     }
+}
 
 
-    // MARK:- 从Xib中快速创建的类方法
-    extension CollectionHeaderView {
-        class func collectionHeaderView() -> CollectionHeaderView {
-            return Bundle.main.loadNibNamed("CollectionHeaderView", owner: nil, options: nil)?.first as! CollectionHeaderView
-        }
+// MARK:- 从Xib中快速创建的类方法
+extension CollectionHeaderView {
+    class func collectionHeaderView() -> CollectionHeaderView {
+        return Bundle.main.loadNibNamed("CollectionHeaderView", owner: nil, options: nil)?.first as! CollectionHeaderView
+    }
 }

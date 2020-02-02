@@ -21,7 +21,7 @@ class CycleModel: NSObject {
         }
     }
     // 主播信息对应的模型对象
-    var anchor : AnchorModel?
+   @objc var anchor : AnchorModel?
     
     
     // MARK:- 自定义构造函数
@@ -32,3 +32,4 @@ class CycleModel: NSObject {
     }
     override func setValue(_ value: Any?, forUndefinedKey key: String) {}
 }
+

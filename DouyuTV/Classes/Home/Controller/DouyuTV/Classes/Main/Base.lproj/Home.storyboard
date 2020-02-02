@@ -27,7 +27,7 @@
         <!--首页-->
         <scene sceneID="3uS-z8-S3w">
             <objects>
-                <viewController id="OwW-Fo-h53" customClass="HomeController" customModule="DouyuTV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OwW-Fo-h53" customClass="HomeViewController" customModule="DouyuTV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zNw-rz-4pa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

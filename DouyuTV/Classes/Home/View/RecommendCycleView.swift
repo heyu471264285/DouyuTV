@@ -108,7 +108,7 @@ extension RecommendCycleView : UICollectionViewDelegate {
 extension RecommendCycleView {
     fileprivate func addCycleTimer() {
         cycleTimer = Timer(timeInterval: 3.0, target: self, selector: #selector(self.scrollToNext), userInfo: nil, repeats: true)
-        RunLoop.main.add(cycleTimer!, forMode: RunLoop.Mode.common);
+        RunLoop.main.add(cycleTimer!, forMode: RunLoop.Mode.common)
     }
     
     fileprivate func removeCycleTimer() {

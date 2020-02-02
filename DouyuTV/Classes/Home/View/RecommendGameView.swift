@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 private let kGameCellID = "kGameCellID"
 private let kEdgeInsetMargin : CGFloat = 10
 
@@ -62,4 +63,3 @@ extension RecommendGameView : UICollectionViewDataSource {
         return cell
     }
 }
-
